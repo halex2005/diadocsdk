@@ -1,0 +1,685 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>История изменений API &mdash; Документация Диадок 1.33.1</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon-16.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Документация Диадок 1.33.1" href="index.html"/>
+        <link rel="prev" title="CloudSignResult" href="proto/CloudSignResultDTO.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Диадок
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.33.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Общее описание возможностей</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Обзор возможностей API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IntegrationOptions.html">Возможности для интеграции</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataModel.html">Модель данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ApiClientOperationPrinciple.html">Порядок работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Counteragents.html">Управление списком активных контрагентов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InvoiceDocflow.html">Документооборот электронных счетов-фактур</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NonformalizedDocflow.html">Неформализованный документооборот</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MiscellaneousApiFeatures.html">Дополнительные функции API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Примеры использования</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_authorization.html">Как авторизоваться в системе</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_send_invoice.html">Как отправить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_receive_invoice.html">Как получить счет-фактуру</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_TORG12.html">Как получить и отправить товарную накладную ТОРГ-12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/example_AcceptanceCertificate.html">Как получить и отправить акт о выполнении работ/оказании услуг</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Техническая документация</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.html">Структуры данных</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Авторизация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Organizations.html">Работа с организациями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Counteragents.html">Работа с контрагентами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Messages.html">Работа с сообщениями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Documents.html">Работа с документами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Invoices.html">Работа с СФ/ИСФ/КСФ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API_Events.html">Работа с событиями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Docflow API.html">Docflow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CloudSignApi.html">Облачная подпись</a></li>
+</ul>
+<p class="caption"><span class="caption-text">История изменений</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">История изменений API</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Диадок</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>История изменений API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/ReleaseNotes.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>История изменений API<a class="headerlink" href="#api" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="section" id="v1-33-10-02-2016">
+<h2>v1.33 - 10.02.2016<a class="headerlink" href="#v1-33-10-02-2016" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлен метод <a class="reference internal" href="http/GetDepartment.html"><em>GetDepartment</em></a>, позволяющий получить информацию о конкретном подразделении организации.</li>
+</ul>
+</div>
+<div class="section" id="v1-32-19-01-2016">
+<h2>v1.32 - 19.01.2016<a class="headerlink" href="#v1-32-19-01-2016" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Значения перечисления ResolutionType (<a class="reference internal" href="proto/Resolution.html"><em>Resolution</em></a>) синхронизированы со значениями, возвращаемые с сервера (значение Undefined заменено на UndefinedResolutionType)</li>
+</ul>
+</div>
+<div class="section" id="v1-31-02-12-2015">
+<h2>v1.31 - 02.12.2015<a class="headerlink" href="#v1-31-02-12-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлено свойство с сообщением об ошибке при доставке в роуминг <em>RoamingNotificationStatusDescription</em> в структуре <a class="reference internal" href="proto/Document.html"><em>Document</em></a>.</li>
+<li>Добавлены новые версии методов <a class="reference internal" href="http/GetCounteragent.html"><em>GetCounteragent</em></a> и <a class="reference internal" href="http/GetCounteragents.html"><em>GetCounteragents</em></a>, в которых изменилась логика показа видимых подразделений.</li>
+</ul>
+</div>
+<div class="section" id="v1-30-11-11-2015">
+<h2>v1.30 - 11.11.2015<a class="headerlink" href="#v1-30-11-11-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлено свойство признак прочитанности <em>IsRead</em> в структуре <a class="reference internal" href="proto/Document.html"><em>Document</em></a>.</li>
+<li>В методе <a class="reference internal" href="http/GetDocuments.html"><em>GetDocuments</em></a> теперь можно искать непрочитанные документы.</li>
+</ul>
+</div>
+<div class="section" id="v1-29-14-10-2015">
+<h2>v1.29 - 14.10.2015<a class="headerlink" href="#v1-29-14-10-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul>
+<li><p class="first">Появилась возможность отправлять новый тип документа &#8220;Дополнтиельное соглашение к договору&#8221;.</p>
+<blockquote>
+<div><ul class="simple">
+<li>в структуре <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost</em></a> добавилась стуктура <a class="reference internal" href="proto/SupplementaryAgreementAttachment.html"><em>SupplementaryAgreementAttachment</em></a> для передачи дополнительного соглашения к договору</li>
+<li>в структуре <a class="reference internal" href="proto/Entity message.html"><em>Entity</em></a> и <a class="reference internal" href="proto/DocumentType.html"><em>DocumentType</em></a> появился новый тип для дополнительного соглашения к договору</li>
+<li>в структуре <a class="reference internal" href="proto/Document.html"><em>Document</em></a> появилась вложенная структура для описания метаданных дополнительного соглашения к договору - <a class="reference internal" href="proto/BilateralDocumentMetadata.html"><em>SupplementaryAgreementMetadata</em></a></li>
+<li>в структуре <a class="reference internal" href="proto/DocumentInfo.html"><em>DocumentInfo</em></a> появилась вложенная структура для описания метаданных дополнительного соглашения к договору - <a class="reference internal" href="proto/SupplementaryAgreementDocumentInfo.html"><em>SupplementaryAgreementInfo</em></a></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="v1-28-10-08-2015">
+<h2>v1.28 - 10.08.2015<a class="headerlink" href="#v1-28-10-08-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul>
+<li><p class="first">Добавилась возможность отправлять зашифрованные товарные накладные и акты выполненных работ. Для этого были внесены следующие изменения:</p>
+<blockquote>
+<div><ul class="simple">
+<li>в структуре <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost</em></a> добавились поля <em>EncryptedXmlTorg12SellerTitles</em>, <em>EncryptedXmlAcceptanceCertificateSellerTitles</em></li>
+<li>появилась структура <a class="reference internal" href="proto/EncryptedXmlDocumentAttachment.html"><em>EncryptedXmlDocumentAttachment</em></a> для передачи зашифрованных накладных и актов</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="v1-27-10-08-2015">
+<h2>v1.27 - 10.08.2015<a class="headerlink" href="#v1-27-10-08-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлен параметр <em>autoRegister</em> у метода <a class="reference internal" href="http/GetMyOrganizations.html"><em>GetMyOrganizations</em></a>, который позволяет управлять автоматической регистрацией пользователя с сертификатом КЭП в организации.</li>
+</ul>
+</div>
+<div class="section" id="v1-26-30-07-2015">
+<h2>v1.26 - 30.07.2015<a class="headerlink" href="#v1-26-30-07-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul>
+<li><p class="first">Добавилась возможность отправлять зашифрованные счета-фактуры. Для этого были внесены следующие изменения:</p>
+<blockquote>
+<div><ul class="simple">
+<li>появились структуры <a class="reference internal" href="proto/Counteragent.html"><em>CounteragentCertificateList</em></a> и <a class="reference internal" href="proto/Counteragent.html"><em>Certificate</em></a> для описания списка сертификатов контрагента</li>
+<li>в структурах <a class="reference internal" href="proto/Document.html"><em>Document</em></a> и <a class="reference internal" href="proto/Entity message.html"><em>Entity</em></a> появился флаг <em>IsEncryptedContent</em>, этот флаг указывается для передачи контента в зашифрованном виде</li>
+<li>появились структуры <a class="reference internal" href="proto/EncryptedInvoiceAttachment.html"><em>EncryptedInvoiceAttachment</em></a>, <a class="reference internal" href="proto/EncryptedInvoiceAttachment.html"><em>EncryptedDocumentMetadata</em></a>, <a class="reference internal" href="proto/EncryptedInvoiceAttachment.html"><em>EncryptedInvoiceMetadata</em></a>, <a class="reference internal" href="proto/EncryptedInvoiceAttachment.html"><em>EncryptedInvoiceCorrectionMetadata</em></a> для передачи зашифрованных счетов-фактур, и метаданных для исправлений и корректировок.</li>
+<li>в структуре <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost</em></a> добавилось поле <em>EncryptedInvoices</em>, для передачи зашифрованных счетов-фактур</li>
+<li>в структуре <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost</em></a> добавилось поле <em>SignatureVerifications</em>, для передачи резльтатов проверки подписей на стороне получателя</li>
+<li>появился метод <a class="reference internal" href="http/GetCounteragentCertificates.html"><em>GetCounteragentCertificates</em></a> для запроса списка сертификатов контрагента</li>
+<li>в структуре <a class="reference internal" href="proto/Signer.html"><em>Signer</em></a> добавилося отпечаток сертификата <em>SignerCertificateThumbprint</em></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Добавилась возможность изменения подписанта в неотправленных исходящих документах:</p>
+<blockquote>
+<div><ul class="simple">
+<li>появилась структура <a class="reference internal" href="proto/PrepareDocumentsToSignRequest.html"><em>DocumentToPatch</em></a> представляюшая изменение исходящего неотправленного документа</li>
+<li>изменились структуры <a class="reference internal" href="proto/DocumentSignature.html"><em>DocumentSignature</em></a>, <a class="reference internal" href="proto/PrepareDocumentsToSignRequest.html"><em>PrepareDocumentsToSignRequest</em></a> - в них добавилась возможность ссылаться на изменение исходящего неотправленного документа</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="v1-25-28-05-2015">
+<h2>v1.25 - 28.05.2015<a class="headerlink" href="#v1-25-28-05-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлен новый метод <a class="reference internal" href="http/GetResolutionChainsForOrganization.html"><em>GetResolutionChainsForOrganization</em></a> для получения списка цепочек согласования организации. Также изменен протобуфер <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost</em></a> -  добавились структура <em>ResolutionChainAssignment</em> для постановки документа на цепочку согласования.</li>
+</ul>
+</div>
+<div class="section" id="v1-24-25-05-2015">
+<h2>v1.24 - 25.05.2015<a class="headerlink" href="#v1-24-25-05-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлен новый метод для получения печатной формы со штампом для пересланного документа - <a class="reference internal" href="http/GenerateForwardedDocumentPrintForm.html"><em>GenerateForwardedDocumentPrintForm</em></a></li>
+</ul>
+</div>
+<div class="section" id="v1-23-28-04-2015">
+<h2>v1.23 - 28.04.2015<a class="headerlink" href="#v1-23-28-04-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлен метод аутентификации по ключу, полученному доверенным сервисом (см. описание метода <a class="reference internal" href="http/Authenticate.html"><em>Authenticate</em></a>)</li>
+</ul>
+</div>
+<div class="section" id="v1-22-1-13-04-2015">
+<h2>v1.22.1 - 13.04.2015<a class="headerlink" href="#v1-22-1-13-04-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Изменены структуры данных <a class="reference internal" href="proto/InvoiceInfo.html"><em>InvoiceInfo</em></a> и <a class="reference internal" href="proto/InvoiceCorrectionInfo.html"><em>InvoiceCorrectionInfo</em></a>, которые предоставляют исходные данные для формирования СФ и КСФ в XML-формате при помощи метода <a class="reference internal" href="http/GenerateInvoiceXml.html"><em>GenerateInvoiceXml</em></a></li>
+<li>Появилась возможность указывать версию формата СФ и КСФ и также указывать поля, соответствующие новой версии XML-формата СФ</li>
+<li>Изменилась логика работы метода <a class="reference internal" href="http/ParseInvoiceXml.html"><em>ParseInvoiceXml</em></a> в зависимости от формата СФ</li>
+<li>Версия сборки SDK не изменилась, <strong>всем кто скачал сборку в период с *10.04.2015-12.04.2015*, необходимо скачать свежую сборку от 13.04.2015</strong></li>
+</ul>
+</div>
+<div class="section" id="v1-22-10-04-2015">
+<h2>v1.22 - 10.04.2015<a class="headerlink" href="#v1-22-10-04-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Изменены структуры данных <a class="reference internal" href="proto/InvoiceInfo.html"><em>InvoiceInfo</em></a> и <a class="reference internal" href="proto/InvoiceCorrectionInfo.html"><em>InvoiceCorrectionInfo</em></a>, которые предоставляют исходные данные для формирования СФ и КСФ в XML-формате при помощи метода <a class="reference internal" href="http/GenerateInvoiceXml.html"><em>GenerateInvoiceXml</em></a>, появилась возможность указывать версию формата СФ и КСФ.</li>
+</ul>
+</div>
+<div class="section" id="v1-21-02-04-2015">
+<h2>v1.21 - 02.04.2015<a class="headerlink" href="#v1-21-02-04-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлена возможность отравлять приглашения организациям, не подключенным к Диадоку. Соответствующие изменения были внесены в методы <a class="reference internal" href="http/AcquireCounteragent.html"><em>AcquireCounteragent</em></a> и <a class="reference internal" href="http/AcquireCounteragentResult.html"><em>AcquireCounteragentResult</em></a>.</li>
+</ul>
+<p>Старая версия метода <a class="reference internal" href="http/AcquireCounteragent.html"><em>AcquireCounteragent</em></a> через некоторое время будет отключена.</p>
+</div>
+<div class="section" id="v1-20-20-01-2015">
+<h2>v1.20 - 20.01.2015<a class="headerlink" href="#v1-20-20-01-2015" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлены методы для работы с <a class="reference internal" href="CloudSignApi.html"><em>облачной ЭЦП</em></a></li>
+</ul>
+</div>
+<div class="section" id="v1-19-15-10-2014">
+<h2>v1.19 - 15.10.2014<a class="headerlink" href="#v1-19-15-10-2014" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлен метод <a class="reference internal" href="http/GenerateDocumentZip.html"><em>GenerateDocumentZip</em></a>, позволяющий формировать zip-архив с документом, подписями к нему и файлами документооборота.</li>
+</ul>
+</div>
+<div class="section" id="v1-18-02-10-2014">
+<h2>v1.18 - 02.10.2014<a class="headerlink" href="#v1-18-02-10-2014" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлена возможность привязывать к документам произвольные данные &#8220;ключ-значение&#8221;. Соответствующие изменения были внесены в структуры <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost</em></a> и <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost</em></a>.</li>
+</ul>
+</div>
+<div class="section" id="v1-17-05-06-2014">
+<h2>v1.17 - 05.06.2014<a class="headerlink" href="#v1-17-05-06-2014" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>В Диадоке появилась возможность получать статус доставки документа в роуминг - <a class="reference internal" href="proto/RoamingNotification.html"><em>RoamingNotification</em></a></li>
+</ul>
+</div>
+<div class="section" id="v1-16-25-02-2014">
+<h2>v1.16 - 25.02.2014<a class="headerlink" href="#v1-16-25-02-2014" title="Ссылка на этот заголовок">¶</a></h2>
+<p>В Диадоке появилась поддержка новых типов полуформализованных документов:</p>
+<ul class="simple">
+<li><a class="reference internal" href="proto/NonformalizedAttachment.html"><em>протоколов согласования цены</em></a>,</li>
+<li><a class="reference internal" href="proto/NonformalizedAttachment.html"><em>реестров сертификатов</em></a>,</li>
+<li><a class="reference internal" href="proto/ReconciliationActAttachment.html"><em>актов сверки</em></a>,</li>
+<li><a class="reference internal" href="proto/ContractAttachment.html"><em>договоров</em></a>,</li>
+<li><a class="reference internal" href="proto/ServiceDetailsAttachment.html"><em>детализаций</em></a></li>
+<li><a class="reference internal" href="proto/Torg13Attachment.html"><em>накладных ТОРГ-13</em></a>.</li>
+</ul>
+</div>
+<div class="section" id="v1-15-05-02-2014">
+<h2>v1.15 - 05.02.2014<a class="headerlink" href="#v1-15-05-02-2014" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Появилась возможность получать через API протокол передачи документа. См. описание метода <a class="reference internal" href="http/GenerateDocumentProtocol.html"><em>GenerateDocumentProtocol</em></a>.</li>
+</ul>
+<p>Выгрузка протокола передачи документа адресатом пересылки документа третьей стороне производится при помощи метода <a class="reference internal" href="http/GenerateForwardedDocumentProtocol.html"><em>GenerateForwardedDocumentProtocol</em></a>.</p>
+</div>
+<div class="section" id="v1-14-24-01-2014">
+<h2>v1.14 - 24.01.2014<a class="headerlink" href="#v1-14-24-01-2014" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Появилась возможность пересылать документы третьей стороне. См. описание методов <a class="reference internal" href="http/ForwardDocument.html"><em>ForwardDocument</em></a>, <a class="reference internal" href="http/GetForwardedDocuments.html"><em>GetForwardedDocuments</em></a> и <a class="reference internal" href="http/GetForwardedDocumentEvents.html"><em>GetForwardedDocumentEvents</em></a>.</li>
+</ul>
+<p>Выгрузка содержимого связанных с документом сущностей адресатом пересылки документа третьей стороне производится при помощи метода <a class="reference internal" href="http/GetForwardedEntityContent.html"><em>GetForwardedEntityContent</em></a>.</p>
+</div>
+<div class="section" id="v1-11-20-12-2013">
+<h2>v1.11 - 20.12.2013<a class="headerlink" href="#v1-11-20-12-2013" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Сборка protobuf-net.dll теперь внедрена в библиотеку DiadocApi.dll. Это позволяет интегратору использовать в своем проекте другую версию сборки protobuf-net.dll.</li>
+</ul>
+</div>
+<div class="section" id="v1-10-06-12-2013">
+<h2>v1.10 - 06.12.2013<a class="headerlink" href="#v1-10-06-12-2013" title="Ссылка на этот заголовок">¶</a></h2>
+<ul>
+<li><p class="first">В Диадоке появилась возможность отправлять формализованные отказы от подписи документов. Xml файл отказа формируется при помощи метода <a class="reference internal" href="http/GenerateSignatureRejectionXml.html"><em>GenerateSignatureRejectionXml</em></a>.</p>
+<blockquote>
+<div><p>Для отправки отказов используется метод <a class="reference internal" href="http/PostMessagePatch.html"><em>PostMessagePatch</em></a>, куда передается структура <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost</em></a> с заполненным списком <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost.XmlSignatureRejections</em></a>.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Для получения документов с отказом в подписи через метод <a class="reference internal" href="http/GetDocuments.html"><em>GetDocuments</em></a> используются такие же фильтры, как для неформализованных отказов. Формализованным отказам соответствует тип XmlSignatureRejection из перечисления <a class="reference internal" href="proto/Entity message.html"><em>AttachmentType</em></a>.</p>
+<ul class="simple">
+<li>Отправка неформализованных отказов от подписи в адрес роуминговых организаций теперь запрещена.</li>
+<li>Новые отказы от подписи, при получении их через старые версии SDK, будут иметь тип <a class="reference internal" href="proto/Entity message.html"><em>SignatureRequestRejection</em></a> (как отказы старого формата), но в содержимом соответствующих сущностей вместо строки с комментарием к отказу теперь будет возвращаться xml файл отказа в кодировке CP1251.</li>
+</ul>
+</div>
+<div class="section" id="v1-9-20-10-2013">
+<h2>v1.9 - 20.10.2013<a class="headerlink" href="#v1-9-20-10-2013" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>В Диадоке появилась возможность аннулирования документов.</li>
+</ul>
+<p>Для отправки предложения об аннулировании через API при обращении к методу <a class="reference internal" href="http/PostMessagePatch.html"><em>PostMessagePatch</em></a> следует наполнять список <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost.RevocationRequests</em></a>.</p>
+<p>Каждый элемент этого списка представляет собой структуру <a class="reference internal" href="proto/MessagePatchToPost.html"><em>RevocationRequestAttachment</em></a>.</p>
+<p>Для принятия предложения об аннулировании через API при обращению к методу <a class="reference internal" href="http/PostMessagePatch.html"><em>PostMessagePatch</em></a> следует наполнять список <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost.RequestedSignatures</em></a>.</p>
+<p>Для отказа от предложения об аннулировании через API при обращении к методу <a class="reference internal" href="http/PostMessagePatch.html"><em>PostMessagePatch</em></a> следует наполнять список <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost.XmlSignatureRejections</em></a>.</p>
+<p>Каждый элемент этого списка представляет собой структуру <a class="reference internal" href="proto/MessagePatchToPost.html"><em>XmlSignatureRejectionAttachment</em></a>. При получение информации о документах через API при помощи методов <a class="reference internal" href="http/GetMessage.html"><em>GetMessage</em></a>, <a class="reference internal" href="http/GetDocument.html"><em>GetDocument</em></a> и т.п. для любых документов в структуре <a class="reference internal" href="proto/Document.html"><em>Document</em></a> заполняется поле <a class="reference internal" href="proto/Document.html"><em>RevocationStatus</em></a>.</p>
+<ul class="simple">
+<li>Добавлены методы <a class="reference internal" href="http/GenerateRevocationRequestXml.html"><em>GenerateRevocationRequestXml</em></a> и <a class="reference internal" href="http/GenerateSignatureRejectionXml.html"><em>GenerateSignatureRejectionXml</em></a>, облегчающие процесс формирования корректных XML файлов предложения об аннулировании и формализованного отказа в подписи.</li>
+<li>Добавлены методы <a class="reference internal" href="http/ParseRevocationRequestXml.html"><em>ParseRevocationRequestXml</em></a> и <a class="reference internal" href="http/ParseSignatureRejectionXml.html"><em>ParseSignatureRejectionXml</em></a>, позволяющие преобразовывать xml-файлы предложения об аннулировании и формализованного отказа в подписи в структуры <a class="reference internal" href="proto/RevocationRequestInfo.html"><em>RevocationRequestInfo</em></a> и <a class="reference internal" href="proto/SignatureRejectionInfo.html"><em>SignatureRejectionInfo</em></a> соответственно.</li>
+</ul>
+</div>
+<div class="section" id="v1-8-13-08-2013">
+<h2>v1.8 - 13.08.2013<a class="headerlink" href="#v1-8-13-08-2013" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Произошли изменения в API по работе со списками контрагентов. См. описание методов <a class="reference internal" href="http/GetCounteragents.html"><em>GetCounteragents</em></a>, <a class="reference internal" href="http/AcquireCounteragent.html"><em>AcquireCounteragent</em></a> и <a class="reference internal" href="http/BreakWithCounteragent.html"><em>BreakWithCounteragent</em></a>.</li>
+</ul>
+</div>
+<div class="section" id="v1-7-10-04-2013">
+<h2>v1.7 - 10.04.2013<a class="headerlink" href="#v1-7-10-04-2013" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>В Диадоке появилась поддержка нового типа полуформализованных документов - ценовых листов.</li>
+</ul>
+<p>Ценовой лист представляет собой двусторонний документ (для него требуется подпись контрагента / отказ в запросе подписи) со следующими обязательными реквизитами: дата составления и номер самого ценового листа, дата вступления ценового листа в силу, дата и номер договора, к которому относится ценовой лист.</p>
+<p>Для отправки ценовых листов через API при обращении к методу <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a> следует наполнять список <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost.PriceLists</em></a>.</p>
+<p>Каждый элемент этого списка представляет собой структуру <a class="reference internal" href="proto/PriceListAttachment.html"><em>PriceListAttachment</em></a>.</p>
+<p>При получение информации о документах через API при помощи методов <a class="reference internal" href="http/GetMessage.html"><em>GetMessage</em></a>, <a class="reference internal" href="http/GetDocument.html"><em>GetDocument</em></a> и т.п. для ценовых листов в структуре <a class="reference internal" href="proto/Document.html"><em>Document</em></a> заполняется поле <a class="reference internal" href="proto/BilateralDocumentMetadata.html"><em>PriceListMetadata</em></a>.</p>
+<p>При фильтрации документов методом <a class="reference internal" href="http/GetDocuments.html"><em>GetDocuments</em></a> также можно использовать новый тип документов PriceList.</p>
+<ul class="simple">
+<li>Для получения списка пользователей конкретной организации добавлен метод <a class="reference internal" href="http/GetOrganizationUsers.html"><em>GetOrganizationUsers</em></a>.</li>
+<li>У структуры <a class="reference internal" href="proto/Organization.html"><em>Organization</em></a> добавлено поле IfnsCode, позволяющее получить код налоговой инспекции - место подачи декларации по НДС.</li>
+</ul>
+</div>
+<div class="section" id="v1-6-14-03-2013">
+<h2>v1.6 - 14.03.2013<a class="headerlink" href="#v1-6-14-03-2013" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Добавлена возможность отправлять документы, подписанные тестовой подписью (см. описание флага <a class="reference internal" href="proto/SignedContent.html"><em>SignedContent.SignWithTestSignature</em></a>).</li>
+<li>Добавлены методы <a class="reference internal" href="http/ParseAcceptanceCertificateSellerTitleXml.html"><em>ParseAcceptanceCertificateSellerTitleXml</em></a> и <a class="reference internal" href="http/ParseTorg12SellerTitleXml.html"><em>ParseTorg12SellerTitleXml</em></a>, позволяющие преобразовывать xml-файлы формализованных актов (титул исполнителя) и ТОРГ-12 (титул продавца) в структуры <a class="reference internal" href="proto/AcceptanceCertificateInfo.html"><em>AcceptanceCertificateSellerTitleInfo</em></a> и <a class="reference internal" href="proto/Torg12Info.html"><em>Torg12SellerTitleInfo</em></a> соответственно.</li>
+<li>Функциональность метода <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a> была расширена: при помощи флага <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost.DelaySend</em></a> можно задержать отправку документа, чтобы была возможность провести его согласование. В связи с этим изменился набор возможных состояний документов, что требует обновления логики клиентских решений.</li>
+<li>Для определения, может ли конкретный пользователь запрашивать согласования, может использоваться флаг <a class="reference internal" href="proto/OrganizationUserPermissions.html"><em>OrganizationUserPermissions.CanRequestResolutions</em></a> в свойствах пользователя, <a class="reference internal" href="http/GetMyPermissions.html"><em>возвращаемых вызовом GetMyPermissions</em></a>.</li>
+<li>В сообщение <a class="reference internal" href="proto/MessagePatch.html"><em>EntityPatch</em></a> добавлено поле ContentIsPatched, через которое сервер выдает информацию о том, что исходный документ в процессе подписания был модифицирован (в документ была внедрена информация о том, кто подписал этот документ).</li>
+<li>Изменена логика работы с перечислимыми типами: теперь в большинстве перечислений имеется специальное значение с именем UnknownИмяПеречисления.</li>
+</ul>
+<p>Клиент может получить (и получит) такое значение в том и только том случае, если имеет место рассогласование версий API между клиентом и сервером, и клиент не может правильно интерпретировать информацию, возвращаемую сервером (например, в случае добавления новых элементов к перечислению клиент будет получать вместо вновь добавленных элементов этот самый UnknownИмяПеречисления элемент). Клиент обязан корректно обрабатывать такие ситуации (например, путем информирования пользователя о необходимости обновить интеграционный модуль).</p>
+<p>Для доступа к новой функциональности и во избежание возможного конфликта версий убедительная просьба скачать и обновить версию инструментария для разработчиков <cite>Diadoc SDK v1.6 &lt;https://diadoc.kontur.ru/sdk/&gt;__</cite></p>
+</div>
+<div class="section" id="v1-5-31-01-2013">
+<h2>v1.5 - 31.01.2013<a class="headerlink" href="#v1-5-31-01-2013" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Появилась возможность работы с документами, пересылаемыми внутри организации.</li>
+</ul>
+<p>Для этого добавились новые элементы в перечислениях <a class="reference internal" href="proto/NonformalizedDocumentMetadata.html"><em>NonformalizedDocumentStatus</em></a>, <a class="reference internal" href="proto/BilateralDocumentMetadata.html"><em>BilateralDocumentStatus</em></a> и <a class="reference internal" href="proto/UnilateralDocumentMetadata.html"><em>UnilateralDocumentStatus</em></a>, а также добавились поля для работы с подразделениями организации в структурах <a class="reference internal" href="proto/Department.html"><em>Department</em></a>, <a class="reference internal" href="proto/Entity message.html"><em>Entity</em></a>, <a class="reference internal" href="proto/Document.html"><em>Document</em></a>, <a class="reference internal" href="proto/Message.html"><em>Message</em></a> и <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost</em></a>.</p>
+<ul class="simple">
+<li>Были расширены возможности работы с «черновиками», то есть с подготовленными, но не отправленными документами. Для отправки ранее созданного черновика добавился метод <a class="reference internal" href="http/SendDraft.html"><em>SendDraft</em></a>.</li>
+</ul>
+<p>Кроме того, черновики теперь можно загружать в Диадок при помощи метода <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a> (это предпочтительный путь).</p>
+<p>Для этого обновилась структура <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost</em></a>, добавилась структура <a class="reference internal" href="proto/DraftToSend.html"><em>DraftToSend</em></a> и структура RequestedSignature была переименована в DocumentSignature (см. описание <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost</em></a>).</p>
+<ul class="simple">
+<li>Появилась возможность загружать большие по размеру документы в Диадок при помощи сервиса «полки документов». Для этих целей добавился метод <a class="reference internal" href="http/ShelfUpload.html"><em>ShelfUpload</em></a> и обновилась структура <a class="reference internal" href="proto/SignedContent.html"><em>SignedContent</em></a>, в которой появилось поле NameOnShelf, позволяющее сослаться на уже загруженный на «полку» файл.</li>
+<li>Появилась возможность восстанавливать ранее удаленные отдельные документы и сообщения целиком. Для этих целей добавлен метод <a class="reference internal" href="http/Restore.html"><em>Restore</em></a>, а в структурах <a class="reference internal" href="proto/MessagePatch.html"><em>EntityPatch</em></a> и <a class="reference internal" href="proto/MessagePatch.html"><em>MessagePatch</em></a> добавлены поля, позволяющие узнать, были ли конкретный документ или сообщение восстановлены.</li>
+<li>Появилась возможность по документу (<cite>Document &lt;Document&gt;</cite>) или сообщению (<cite>Message &lt;Message&gt;</cite>) понять, является ли он юридически значимым. Для этих целей в каждую из названных структур добавлено поле IsTest.</li>
+<li>Добавилась возможность проводить эвристический семантический разбор строк, представляющих почтовый адрес в Российской Федерации. За это отвечает метод <a class="reference internal" href="http/ParseRussianAddress.html"><em>ParseRussianAddress</em></a>.</li>
+<li>Добавилась возможность выполнять трансформацию XML-файла СФ/ИСФ, сформированного в соответствии с <a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/ON_SFAKT_1_897_01_05_01_02.xsd">XML-схемой</a>, в структуру <a class="reference internal" href="proto/InvoiceInfo.html"><em>InvoiceInfo</em></a>. За это отвечает метод <a class="reference internal" href="http/ParseInvoiceXml.html"><em>ParseInvoiceXml</em></a>.</li>
+</ul>
+</div>
+<div class="section" id="v1-4-29-08-2012">
+<h2>v1.4 - 29.08.2012<a class="headerlink" href="#v1-4-29-08-2012" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>В структуру данных <a class="reference internal" href="proto/Organization.html"><em>Organization</em></a> добавилось поле Departments, содержащее список всех подразделений в организации. Это поле позволяет получать информацию об оргструктуре при помощи методов <a class="reference internal" href="http/GetMyOrganizations.html"><em>GetMyOrganizations</em></a>, <a class="reference internal" href="http/GetOrganization.html"><em>GetOrganization</em></a>, <a class="reference internal" href="http/GetCounteragents.html"><em>GetCounteragents</em></a>, <a class="reference internal" href="http/GetCounteragent.html"><em>GetCounteragent</em></a>.</li>
+<li>В методах <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a> и PostDraft появилась возможность отправлять документы в конкретное подразделение контрагента. Для этого в структуру данных <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost</em></a> добавилось новое поле ToDepartmentId, а в метод PostDraft был добавлен новый параметр toDepartmentId.</li>
+<li>Появился новый метод <a class="reference internal" href="http/MoveDocuments.html"><em>MoveDocuments</em></a> для перемещения документов своей организации между подразделениями. Информация о перемещениях документов между подразделениями (неважно было это сделано через API или через Web) доступна через метод <a class="reference internal" href="http/GetNewEvents.html"><em>GetNewEvents</em></a>, в структуре данных <a class="reference internal" href="proto/MessagePatch.html"><em>EntityPatch</em></a> добавилось поле MovedToDepartmentId.</li>
+<li>В структуру данных <a class="reference internal" href="proto/Entity message.html"><em>Entity</em></a> добавилось поле RawCreationDate, содержащее <a class="reference internal" href="proto/Timestamp.html"><em>метку времени</em></a> создания сущности. Это поле заполняется для всех сущностей, его можно использовать для получения времени подписания или согласования документа.</li>
+<li>Появилась возможность осуществлять согласование (или отказ в согласовании) документов через API. Для этого добавилась структура данных <a class="reference internal" href="proto/Resolution.html"><em>Resolution</em></a>, а в структуре данных <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost</em></a> добавилось поле Resolutions.</li>
+</ul>
+<p>Все действия по согласованию видны в структуре данных <a class="reference internal" href="proto/Message.html"><em>Message</em></a> как сущности с типом <a class="reference internal" href="proto/Entity message.html"><em>Attachment/Resolution</em></a>.</p>
+<p>Содержимое этой сущности - байты строки комментария к согласованию в кодировке UTF-8. В структуру данных <a class="reference internal" href="proto/Entity message.html"><em>Entity</em></a> добавилось поле  ResolutionInfo, содержащее тип действия по согласованию и ФИО согласователя в виде новой структуры данных <a class="reference internal" href="proto/Resolution.html"><em>ResolutionInfo</em></a>.</p>
+</div>
+<div class="section" id="v1-3-26-06-2012">
+<h2>v1.3 - 26.06.2012<a class="headerlink" href="#v1-3-26-06-2012" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Был добавлен метод <a class="reference internal" href="http/Delete.html"><em>Delete</em></a>, позволяющий помечать документы как удаленные. Также в структурах данных <a class="reference internal" href="proto/Document.html"><em>Document</em></a> и <a class="reference internal" href="proto/Message.html"><em>Message</em></a> появились соответствующие флаги IsDeleted.</li>
+</ul>
+<p>Кроме того, в структуру данных <a class="reference internal" href="proto/MessagePatch.html"><em>MessagePatch</em></a> был добавлен флаг MessageIsDeleted и поле EntityPatches, содержащее список структур данных типа EntityPatch с флагом DocumentIsDeleted. Данные расширения структуры данных MessagePatch позволяют отслеживать моменты удаления документов и/или сообщений, анализируя поток событий в ящике, возвращаемый методом <a class="reference internal" href="http/GetNewEvents.html"><em>GetNewEvents</em></a>.</p>
+<ul class="simple">
+<li>Был добавлен метод <a class="reference internal" href="http/CanSendInvoice.html"><em>CanSendInvoice</em></a>, позволяющий для данного идентификатора ящика и сертификата ЭЦП узнать, был ли этот сертификат зарегистрирован в ФНС в качестве сертификата, используемого для подписания электронных счетов-фактур, отправляемых участником ЭДО, которому принадлежит данный ящик в Диадоке. Проще говоря, метод CanSendInvoice отвечает на вопрос, может ли тот или иной сертификат ЭЦП ипользоваться для подписания ЭСФ, отправляемых из данного ящика. Также в структуру данных <a class="reference internal" href="proto/Organization.html"><em>Organization</em></a> было добавлено поле FnsRegistrationDate - дата подачи заявляения в ФНС на регистрацию данной организации в качестве участника документооборота ЭСФ.</li>
+<li>Метод PostDraft теперь позволяет загружать в черновики товарные накладные и акты о выполнении работ / оказании услуг в рекомендованном ФНС XML-формате (документы с типами <a class="reference internal" href="proto/Entity message.html"><em>Attachment/XmlTorg12</em></a> и <a class="reference internal" href="proto/Entity message.html"><em>Attachment/XmlAcceptanceCertificate</em></a>). Также в метод PostDraft была добавлена поддержка счетов на оплату (документов типа <a class="reference internal" href="proto/Entity message.html"><em>Attachment/ProformaInvoice</em></a>).</li>
+</ul>
+<p>v1.2 - 09.06.2012</p>
+<ul class="simple">
+<li>Был расширен перечень сведений, возвращаемых методами, дающими доступ к справочнику организаций в Диадоке (например, <a class="reference internal" href="http/GetMyOrganizations.html"><em>GetMyOrganizations</em></a>). Теперь структура данных <a class="reference internal" href="proto/Organization.html"><em>Organization</em></a> включает поля Ogrn (ОГРН организации), Address (юридический адрес организации) и FnsParticipantId (уникальный идентификатор участника документооборота СФ, который должен указываться при формировании XML счетов-фактур).</li>
+<li>Метод <a class="reference internal" href="http/GenerateInvoiceXml.html"><em>GenerateInvoiceXml</em></a> теперь позволяет формировать не только XML-файлы счетов-фактур, но и XML-файлы исправлений счетов-фактур, корректировочных счетов-фактур, а также исправлений корректировочных счетов-фактур.</li>
+</ul>
+<p>v1.1 - 11.05.2012</p>
+<ul class="simple">
+<li>Появилась поддержка рекомендованных ФНС России форматов электронных товарных накладных и актов о выполнении работ / оказании услуг. Теперь при помощи метода <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a> можно загружать в Диадок титулы продавца XML-накладных (новый тип докуметов <a class="reference internal" href="proto/Entity message.html"><em>Attachment/XmlTorg12</em></a>) и титулы исполнителя XML-актов (новый тип докуметов <a class="reference internal" href="proto/Entity message.html"><em>Attachment/XmlAcceptanceCertificate</em></a>), а при помощи метода <a class="reference internal" href="http/PostMessagePatch.html"><em>PostMessagePatch</em></a> можно загружать в Диадок соответствующие титулы покупателя/заказчика. В Diadoc SDK включены XML-схемы, описывающие рекомендованные ФНС России форматы товарных накладных и актов о выполнении работ / оказании услуг:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/DP_OTORG12_1_986_00_05_01_01.xsd">XML-схема товарной накладной, титул продавца</a>;</li>
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/DP_PTORG12_1_989_00_05_01_01.xsd">XML-схема товарной накладной, титул покупателя</a>;</li>
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/DP_IAKTPRM_1_987_00_05_01_01.xsd">XML-схема акта о выполнении работ / оказании услуг, титул исполнителя</a>;</li>
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/DP_ZAKTPRM_1_990_00_05_01_01.xsd">XML-схема акта о выполнении работ / оказании услуг, титул заказчика</a>.</li>
+</ul>
+<p>Также появились методы <a class="reference internal" href="http/GenerateTorg12XmlForSeller.html"><em>GenerateTorg12XmlForSeller</em></a>, <a class="reference internal" href="http/GenerateTorg12XmlForBuyer.html"><em>GenerateTorg12XmlForBuyer</em></a> и <a class="reference internal" href="http/GenerateAcceptanceCertificateXmlForSeller.html"><em>GenerateAcceptanceCertificateXmlForSeller</em></a> и <a class="reference internal" href="http/GenerateAcceptanceCertificateXmlForBuyer.html"><em>GenerateAcceptanceCertificateXmlForBuyer</em></a>, облегчающие процесс формирования корректных XML-файлов товарных накладных и актов. Поддержка новых типов документов была добавлена и в метод <a class="reference internal" href="http/GetDocuments.html"><em>GetDocuments</em></a>.</p>
+</div></blockquote>
+<ul class="simple">
+<li>Появилась возможность при помощи метода <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a> загружать в Диадок счета на оплату (новый тип докуметов <a class="reference internal" href="proto/Entity message.html"><em>Attachment/ProformaInvoice</em></a>). Поддержка данного типа документов была добавлена и в метод <a class="reference internal" href="http/GetDocuments.html"><em>GetDocuments</em></a>.</li>
+<li>Также в метод <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a> была добавлена возможность загружать в Диадок вложения специального типа &#8220;структурированные данные&#8221; (<cite>Attachment/StructuredData &lt;proto/Entity message&gt;</cite>), при помощи которого можно организовать передачу рядом с юридически-значимой печатной формой документа каких-то данных, подлежащих автоматизированной обработке.</li>
+<li>Метод <a class="reference internal" href="http/GetDocuments.html"><em>GetDocuments</em></a> теперь позволяет получать информацию обо всех СФ-подобных документах (СФ/ИСФ/КСФ/ИКСФ) единым списком. Для этого в качестве первой части параметра filterCategory нужно передать специальное значение &#8220;AnyInvoiceDocumentType&#8221;. Например, чтобы получить список всех входящих СФ/ИСФ/КСФ/ИКСФ, нужно в метод GetDocuments передать параметр filterCategory=AnyInvoiceDocumentType.Inbound.</li>
+</ul>
+</div>
+<div class="section" id="v1-0-04-04-2012">
+<h2>v1.0 - 04.04.2012<a class="headerlink" href="#v1-0-04-04-2012" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Появилась поддержка официально утвержденных версий форматов документов, фигурирующих в документообороте счетов-фактур. В связи с этим поменялись сигнатуры методов <a class="reference internal" href="http/GenerateInvoiceDocumentReceiptXml.html"><em>GenerateInvoiceDocumentReceiptXml</em></a> и <a class="reference internal" href="http/GenerateInvoiceCorrectionRequestXml.html"><em>GenerateInvoiceCorrectionRequestXml</em></a>. В Diadoc SDK включены соответствующие XML-схемы, описывающие форматы документов, фигурирующих в документообороте счетов-фактур:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/ON_SFAKT_1_897_01_05_01_02.xsd">XML-схема счета-фактуры  (СФ)</a>;  эта же схема описывает формат исправления СФ (ИСФ);</li>
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/ON_KORSFAKT_1_911_01_05_01_02.xsd">XML-схема корректировочного счета-фактуры  (КСФ)</a>;  эта же схема описывает формат исправления КСФ (ИКСФ);</li>
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/DP_IZVPOL_1_982_00_01_01_02.xsd">XML-схема извещения о получении  документа</a>;</li>
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/DP_PDPOL_1_984_00_01_01_02.xsd">XML-схема подтверждения оператора о дате отправки  СФ/ИСФ/КСФ/ИКСФ</a>  (выдается продавцу);</li>
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/DP_PDOTPR_1_983_00_01_01_02.xsd">XML-схема подтверждения оператора о дате доставки  СФ/ИСФ/КСФ/ИКСФ</a>  (выдается покупателю);</li>
+<li><a class="reference external" href="https://diadoc.kontur.ru/sdk/xsd/DP_UVUTOCH_1_985_00_01_01_02.xsd">XML-схема уведомления об уточнении  СФ/ИСФ/КСФ/ИКСФ</a>  (формируется покупателем).</li>
+</ul>
+</div></blockquote>
+<p>В целях обеспечения обратной совместимости с существующими пилотными проектами по итеграции Диадок в течение еще какого-то времени будет продолжать принимать счета-фактуры в старом формате. Однако нужно иметь в виду, что такие документы не будут иметь юридической значимости.</p>
+<ul class="simple">
+<li>Появился метод <a class="reference internal" href="http/GenerateInvoiceXml.html"><em>GenerateInvoiceXml</em></a>, облегчающий процесс формирования корректного XML-файла счета-фактуры.</li>
+</ul>
+<p>Данный метод позволяет интегратору не погружаться в детали XML-формата СФ, а передавать в Диадок только необходимые первичные данные в виде структуры <a class="reference internal" href="proto/InvoiceInfo.html"><em>InvoiceInfo</em></a>. По этим данным метод GenerateInvoiceXml, при необходимости дополнив их сведениями из своих справочников, сформирует корректный XML-файл счета-фактуры, который затем можно будет отправить методом <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a>, либо загрузить в черновики методом PostDraft. В частности, в структуре InvoiceInfo можно вообще не заполнять реквизиты продавца и покупалеля, достаточно указать идентификаторы их ящиков в Диадоке, и тогда соответствующие реквизиты будут подтянуты из справочника организаций Диадока.</p>
+<ul>
+<li><p class="first">В Диадоке появилась возможность работать с исправлениями счетов-фактур и корректировочными счетами-фактурами. Для этого были введены новые <a class="reference internal" href="proto/Entity message.html"><em>типы сущностей</em></a>: Attachment/InvoiceRevision (исправление счета-фактуры), Attachment/InvoiceCorrection (корректировочный счет-фактура), Attachment/InvoiceCorrectionRevision (исправление корректировочного счета-фактуры). Для связывания исправлений и корректировок с оригинальными СФ нужно использовать уже имеющийся в Диадоке механизм установки ссылок между документами, находящимися в разных сообщениях. Кроме того, в структуре <a class="reference internal" href="proto/InvoiceDocumentMetadata.html"><em>Document.InvoiceMetadata</em></a>, описывающей метаданные счета-фактуры в Диадоке, появилось поле InvoiceAmendmentFlags, которое отражает статус счета-фактуры с точки зрения наличия уведомления об уточнении или отправленного исправления / корректировки. Например, при отправке корректировочного СФ, у исходного счета-фактуры, по которому было запрошено уточнение, поле Document.InvoiceMetadata.InvoiceAmendmentFlags поменяет свое значение с AmendmentRequested на AmendmentRequested|Corrected.</p>
+</li>
+<li><p class="first">Появился метод <a class="reference internal" href="http/GetInvoiceCorrectionRequestInfo.html"><em>GetInvoiceCorrectionRequestInfo</em></a>, позволяющий получить информацию, содержащуюся в уведомлении об уточнении счета-фактуры, без необходимости уметь разбирать соответствующий XML-формат, утвержденный ФНС, что в какой-то степени упрощает работу интегратора. В частности, метод GetInvoiceCorrectionRequestInfo позволяет получить текст уведомления об уточнении.</p>
+</li>
+<li><p class="first">Появилась возможность при помощи методов <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a> и PostDraft загружать в Диадок акты о выполнении работ / оказании услуг (новый тип докуметов <a class="reference internal" href="proto/Entity message.html"><em>Attachment/AcceptanceCertificate</em></a>). Поддержка нового типа документов была добавлена и в метод <a class="reference internal" href="http/GetDocuments.html"><em>GetDocuments</em></a>.</p>
+</li>
+<li><p class="first">Метод <a class="reference internal" href="http/GetDocuments.html"><em>GetDocuments</em></a> научился фильтровать список документов по дате формирования документа в учетной системе (реквизиту самого документа), а не только по дате загрузки документа в Диадок. Для этого в метод GetDocuments добавлены необязательные параметры строки запроса fromDocumentDate и toDocumentDate, которые позволяют задать интервал времени, в котором осуществляется поиск. При этом метод GetDocuments продолжает поддерживать фильтрацию списка документов при помощи параметров timestampFromTicks и timestampToTicks.</p>
+</li>
+<li><p class="first">Было расширено API для работы с черновиками:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Метод <a class="reference internal" href="http/GetNewEvents.html"><em>GetNewEvents</em></a> теперь возвращает  информацию  о событиях, происходящик с черновиками: создание черновика (и  начальный набор документов в нем), добавление к черновику  документов, утилизация черновика (просто удаление, либо отправка  на основе него полноценного сообщения). Методы  <a class="reference internal" href="http/GetEvent.html"><em>GetEvent</em></a> и <a class="reference internal" href="http/GetMessage.html"><em>GetMessage</em></a> также  теперь  возвращают информацию о черновиках.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Появился метод <a class="reference internal" href="http/RecycleDraft.html"><em>RecycleDraft</em></a>, который  позволяет  удалять еще не отправленные черновики.</li>
+<li>У сообщения <a class="reference internal" href="proto/Message.html"><em>Message</em></a> появилось необязательное поле  CreatedFromDraftId, в которое заносится идентификатор черновика,  на основании которого было создано данное сообщение (или  черновик). Также и у черновика появилось симметричное поле  DraftIsTransformedToMessageId, куда заносится идентификатор  сообщения (или черновика), которое было создано из данного  черновика. Флаг Message.DraftIsRecycled означает, что черновик  был утилизирован, то есть просто удален, либо преобразован в  полноценное сообщение или в другой черновик. Соответственно,  поля DraftIsTransformedToMessageId и DraftIsRecycled могут  присутствовать в структуре Message, описывающей черновик,  одновременно.</li>
+<li>Метод PostDraft стал позволять создавать нередактируемые  черновики, то есть такие черновики, которые можно только  отправить, или удалить. Добавление или удаление документов из  таких черновиком заблокировано как в веб-интерфейсе Диадока, так  и в API-методе PostDraft. Для создания нередактируемого  черновика нужно в метод PostDraft передать параметр lock без  значения.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="v0-9-18-01-2012">
+<h2>v0.9 - 18.01.2012<a class="headerlink" href="#v0-9-18-01-2012" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Появились методы для управления списком своих контрагентов. Метод <a class="reference internal" href="http/GetCounteragents.html"><em>GetCounteragents</em></a> позволяет получить список контрагентов, отфильтрованный по их статусу. Метод <a class="reference internal" href="http/GetCounteragent.html"><em>GetCounteragent</em></a> позволяет получить информацию о контрагенте по его идентификатору. Метод <a class="reference internal" href="http/AcquireCounteragent.html"><em>AcquireCounteragent</em></a> позволяет добавить организацию в список своих контрагентов. Метод <a class="reference internal" href="http/BreakWithCounteragent.html"><em>BreakWithCounteragent</em></a> позволяет исключить организацию из списка своих контрагентов.</li>
+<li>Был переработан механизм получения справочной информации об организациях и ящиках в Диадоке. Методы GetBoxInfo и GetBoxesByInnKpp, а также метод GetBoxesByAuthToken объявлены устаревшими и не рекомендуются к использованию. Через некоторое время их поддержка будет прекращена. Вместо метода GetBoxesByAuthToken теперь нужно использовать метод <a class="reference internal" href="http/GetMyOrganizations.html"><em>GetMyOrganizations</em></a>, позволяющий получить информацию обо всех организациях и ящиках, к которым имеет доступ владелец текущего атовризационного токена. Вместо метода GetBoxesByInnKpp теперь нужно использовать метод <a class="reference internal" href="http/GetOrganizationsByInnKpp.html"><em>GetOrganizationsByInnKpp</em></a>, позволяющий получить информацию о ящиках в Диадоке по ИНН и КПП организации. Наконец, на смену методу GetBoxInfo пришли методы <a class="reference internal" href="http/GetOrganization.html"><em>GetOrganization</em></a> и <a class="reference internal" href="http/GetBox.html"><em>GetBox</em></a>, позволяющие получить информацию соответственно о конкретных организации и ящике по их идентификаторам.</li>
+</ul>
+</div>
+<div class="section" id="v0-8-16-12-2011">
+<h2>v0.8 - 16.12.2011<a class="headerlink" href="#v0-8-16-12-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Появился метод <a class="reference internal" href="http/GetDocuments.html"><em>GetDocuments</em></a>, позволяющий быстро получать информацию о документах (например, о счетах-фактурах) в своем ящике, задавая различные критерии фильтрации документов. Также появился метод <a class="reference internal" href="http/GetDocument.html"><em>GetDocument</em></a>, позволяющий получить всю метаинформацию об отдельном документе, зная его идентификатор.</li>
+<li>Появилась возможность при помощи методов <a class="reference internal" href="http/PostMessage.html"><em>PostMessage</em></a> и PostDraft загружать в Диадок новые типы докуметов, в частности, товарные накладные (ТОРГ-12) и запросы на инициацию канала обмена документами через Диадок <a class="reference internal" href="proto/TrustConnectionRequestAttachment.html"><em>TrustConnectionRequest</em></a>.</li>
+<li>Структура данных <a class="reference internal" href="proto/Entity message.html"><em>Entity</em></a> расширена полем DocumentInfo. Для сущности типа Attachment это поле содержит дополнительную информацию о документе, представляемом этой сущностью.</li>
+</ul>
+</div>
+<div class="section" id="v0-7-03-10-2011">
+<h2>v0.7 - 03.10.2011<a class="headerlink" href="#v0-7-03-10-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<ul>
+<li><p class="first">Появились методы <a class="reference internal" href="http/Recognize.html"><em>Recognize</em></a> и <a class="reference internal" href="http/GetRecognized.html"><em>GetRecognized</em></a>, позволяющие использовать Диадок для распознавания печатных форм счетов-фактур. Печатная форма подается на вход метода Recognize в формате <a class="reference external" href="https://msdn.microsoft.com/en-us/library/windows/hardware/dn641615(v=vs.85).aspx">XPS</a>.</p>
+<blockquote>
+<div><p>В случае успешного распознавания на выходе метода GetRecognized получается XML-файл счета-фактуры в формате, удовлетворяющем требованиям ФНС и пригодном для отправки в соответствии с порядком, утвержденным Минфином РФ.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="v0-6-26-08-2011">
+<h2>v0.6 - 26.08.2011<a class="headerlink" href="#v0-6-26-08-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>В патчи с уведомлениями о невозможности доставки (DFN), возникающими по причине невалидности подписей под передаваемыми документами, теперь добавляются так называемые протоколы проверки подписей в виде отдельных сущностей для каждой подписи. Эти сущности-протоколы имеют тип <a class="reference internal" href="proto/Entity message.html"><em>Attachment/SignatureVerificationReport</em></a> и привязываться к «своим» подписям при помощи поля Entity.ParentEntityId. Протоколы проверки формируются для всех подписей (как валидных, так и невалидных), поэтому чтобы понять, какие именно подписи были признаны недействительными, нужно анализировать содержимое соответствующих протоколов. Содержимое сущности-протокола (массив байтов Entity.Content.Data) представляет собой сериализованную в протобуфер структуру <a class="reference internal" href="proto/SignatureVerificationResult.html"><em>SignatureVerificationResult</em></a>.</li>
+</ul>
+</div>
+<div class="section" id="v0-5-15-08-2011">
+<h2>v0.5 - 15.08.2011<a class="headerlink" href="#v0-5-15-08-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Появилась возможность запрашивать формирование ЭЦП под пересылаемыми данными &#8220;по доверенности&#8221;. В этом случае изготавливать ЭЦП на клиенте  не нужно (и значит, можно не устанавливать на рабочее место криптопровайдер), вместо этого формирование необходимой подписи будет произведено на сервере в момент доставки отправленного сообщения.</li>
+</ul>
+<p>Изменения отразились в структурах данных <a class="reference internal" href="proto/MessageToPost.html"><em>MessageToPost</em></a> и <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost</em></a>.</p>
+</div>
+<div class="section" id="v0-4-08-07-2011">
+<h2>v0.4 - 08.07.2011<a class="headerlink" href="#v0-4-08-07-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Появилась возможность формирования печатных форм различных документов (в частности, счетов фактур) при помощи метода <a class="reference internal" href="http/GeneratePrintForm.html"><em>GeneratePrintForm</em></a>.</p>
+</div>
+<div class="section" id="v0-3-17-06-2011">
+<h2>v0.3 - 17.06.2011<a class="headerlink" href="#v0-3-17-06-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<ul>
+<li><p class="first">Появилась возможность связывать документы в разных сообщениях. Для организации такой связи вводится структура данных <a class="reference internal" href="proto/DocumentId.html"><em>DocumentId</em></a>, которую можно заполнить, например, в структуре <a class="reference internal" href="proto/XmlDocumentAttachment.html"><em>XmlDocumentAttachment</em></a> при отправке корректировочного счета-фактуры.</p>
+<blockquote>
+<div><p>DocumentId включает в себя два идентификатора: поле DocumentId.MessageId - это идентификатор сообщения, содержащего исходный документ; поле DocumentId.EntityId - это идентификатор сущности, представляющей исходный документ в этом сообщении.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Появилась возможность отправить через API отказ от запрошенной подписи. Для этого в структуре <a class="reference internal" href="proto/MessagePatchToPost.html"><em>MessagePatchToPost</em></a> появилось необязательное поле RequestedSignatureRejections.</p>
+</li>
+<li><p class="first">Появилась возможность отслеживания отдельных документов при отправке их через черновики. Для этого метод PostDraft начал возвращать вместе с идентификатором черновика еще и идентификатор сущности, в которую превращается загруженный документ.</p>
+</li>
+<li><p class="first">Уведомления о невозможности доставки теперь ссылаются на недоставленные куски сообщения.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Для этого в структуре <a class="reference internal" href="proto/Entity message.html"><em>Entity</em></a> появилос необязательное поле NotDeliveredEventId. NotDeliveredEventId - это идентификатор сообщения или патча, который не удалось доставить (например, из-за некорректности одной или нескольких подписей в нем).</li>
+<li>Получить недоставленный кусок сообщения можно при помощи метода <a class="reference internal" href="http/GetEvent.html"><em>GetEvent</em></a>, передав ему в качестве параметра eventId значение NotDeliveredEventId. Данное поле заполняется только у сущности типа Attachment с типом вложения DeliveryFailureNotification.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="v0-2-2-15-04-2011">
+<h2>v0.2.2 - 15.04.2011<a class="headerlink" href="#v0-2-2-15-04-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Справочные методы GetBoxInfo, GetBoxesByAuthToken и GetBoxesByInnKpp научились отдавать данные в формате XML.</p>
+</div>
+<div class="section" id="v0-2-1-07-04-2011">
+<h2>v0.2.1 - 07.04.2011<a class="headerlink" href="#v0-2-1-07-04-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Появилась возможность создавать черновики при помощи метода PostDraft.</p>
+</div>
+<div class="section" id="v0-2-30-03-2011">
+<h2>v0.2 - 30.03.2011<a class="headerlink" href="#v0-2-30-03-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Появилась возможность вести документооборот по счетам-фактурам в соответствии с порядком Минфина.</p>
+</div>
+<div class="section" id="v0-1-1-18-02-2011">
+<h2>v0.1.1 - 18.02.2011<a class="headerlink" href="#v0-1-1-18-02-2011" title="Ссылка на этот заголовок">¶</a></h2>
+<ul class="simple">
+<li>Появились методы для получения справочной информации GetBoxInfo и GetBoxesByInnKpp.</li>
+<li>Появился метод для получения контента вложений по отдельности — <a class="reference internal" href="http/GetEntityContent.html"><em>GetEntityContent</em></a>.</li>
+<li>Метод <a class="reference internal" href="http/GetMessage.html"><em>GetMessage</em></a> перестал отдавать весь тяжелый контент скопом (свыше 1Мб). Нужно учиться использовать метод <a class="reference internal" href="http/GetEntityContent.html"><em>GetEntityContent</em></a>.</li>
+</ul>
+</div>
+<div class="section" id="v0-1-09-12-2010">
+<h2>v0.1 - 09.12.2010<a class="headerlink" href="#v0-1-09-12-2010" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Первоначальный релиз интеграторского интерфейса.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="proto/CloudSignResultDTO.html" class="btn btn-neutral" title="CloudSignResult" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Диадок.
+      Обновлено: Mar 18, 2016.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.33.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
