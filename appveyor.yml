@@ -19,6 +19,10 @@ install:
   - "%PYTHON%/Scripts/pip.exe install -r requirements.txt"
   - echo %APPVEYOR_REPO_NAME%
   - echo %APPVEYOR_REPO_BRANCH%
+  - echo %APPVEYOR_BUILD_FOLDER%
+  - git clone https://github.com/halex2005/appveyor-texlive.git "%APPVEYOR_BUILD_FOLDER%\..\appveyor-texlive"
+  - 7z x "%APPVEYOR_BUILD_FOLDER%\..\appveyor-texlive\texlive.7z"
+  - set PATH=%APPVEYOR_BUILD_FOLDER%\..\appveyor-texlive\texlive\bin\win32;%PATH%
   - cinst graphviz
   - java -jar docs/source/_plantuml/plantuml.jar -testdot
   - cd docs
@@ -29,9 +33,17 @@ install:
   - cd ..\..
   - type source\conf.py
   - make.bat html
+  - make.bat singlehtml
+  - make.bat epub
+  - make.bat latexpdf
+  - dir build\html
+  - dir build\singlehtml
+  - dir build\epub
+  - dir build\latex
 build: none
 
 on_success:
+  - zip -r diadocsdk.epub ./build/epub
   - cd build\html
   - git config --global credential.helper store
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:GITHUB_ACCESS_TOKEN):x-oauth-basic@github.com`n"
@@ -47,3 +59,8 @@ artifacts:
   - path: docs/build/html
     name: diadoc-api-docs
     type: zip
+  - path: docs/build/singlehtml
+    name: diadoc-api-docs-single-html
+    type: zip
+  - path: docs/diadocsdk.epub
+  - path: docs/build/latex/Diadoc.pdf
