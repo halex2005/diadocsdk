@@ -21,10 +21,13 @@ install:
   - echo %APPVEYOR_REPO_BRANCH%
   - echo %APPVEYOR_BUILD_FOLDER%
   - git clone https://github.com/halex2005/appveyor-texlive.git "%APPVEYOR_BUILD_FOLDER%\..\appveyor-texlive"
-  - 7z x "%APPVEYOR_BUILD_FOLDER%\..\appveyor-texlive\texlive.7z"
-  - set PATH=%APPVEYOR_BUILD_FOLDER%\..\appveyor-texlive\texlive\bin\win32;%PATH%
+  - 7z x "%APPVEYOR_BUILD_FOLDER%\..\appveyor-texlive\texlive.7z" > NUL
+  - dir .
+  - dir texlive
+  - set PATH=%APPVEYOR_BUILD_FOLDER%\texlive\bin\win32;%PATH%
+  - set PATH
   - cinst graphviz
-  - java -jar docs/source/_plantuml/plantuml.jar -testdot
+  - java -jar docs/plantuml/plantuml.jar -testdot
   - cd docs
   - git clone https://%GITHUB_ACCESS_TOKEN%:x-oauth-basic@github.com/%APPVEYOR_REPO_NAME% --branch gh-pages --single-branch build/html
   - cd build\html
@@ -36,6 +39,9 @@ install:
   - make.bat singlehtml
   - make.bat epub
   - make.bat latexpdf
+  - cd build\latex
+  - pdflatex Diadoc.tex
+  - cd ..\..
   - dir build\html
   - dir build\singlehtml
   - dir build\epub
@@ -63,4 +69,6 @@ artifacts:
     name: diadoc-api-docs-single-html
     type: zip
   - path: docs/diadocsdk.epub
+    name: diadocsdk.epub
   - path: docs/build/latex/Diadoc.pdf
+    name: diadocsdk.pdf
